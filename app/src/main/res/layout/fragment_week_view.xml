@@ -11,4 +11,9 @@
         android:layout_height="match_parent"
         android:text="주간 달력" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/week_vpPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </FrameLayout>
