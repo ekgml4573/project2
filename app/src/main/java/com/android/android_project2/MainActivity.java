@@ -1,5 +1,6 @@
 package com.android.android_project2;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -99,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
    //     TextView yearmonth = findViewById(R.id.yearmonth);
    //     yearmonth.setText(year + "년 " + (month + 1) + "월");
 
+        //앱바에 연월 표시
+        ActionBar ab = getSupportActionBar() ;
+        ab.setTitle(year + "년 " + (month + 1) + "월") ;
+
         //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
         mCal.set(year,month,1);
         int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
@@ -114,12 +119,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.main_container, new MonthViewFragment());
         fragmentTransaction.commit();
 
-   //     gridAdapter = new GridAdapter(getApplicationContext(), dayList);
-   //     gridView.setAdapter(gridAdapter);
+        gridAdapter = new GridAdapter(getApplicationContext(), dayList);
+        gridView.setAdapter(gridAdapter);
 
         //어댑터 연결
-   //     GridView gridView = (GridView) findViewById(R.id.gridview);
-     //   gridView.setAdapter(gridAdapter);
+     //   GridView gridView = (GridView) findViewById(R.id.gridview);
+   //     gridView.setAdapter(gridAdapter);
 
         // 항목 클릭 이벤트 처리
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -131,8 +136,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        gridAdapter = new GridAdapter(getApplicationContext(), dayList);
-        gridView.setAdapter(gridAdapter);
 
     }
 
