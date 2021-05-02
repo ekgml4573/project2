@@ -23,8 +23,8 @@ public class MonthViewFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int mParam1;
+    private int mParam2;
 
     public MonthViewFragment() {
         // Required empty public constructor
@@ -39,11 +39,11 @@ public class MonthViewFragment extends Fragment {
      * @return A new instance of fragment MonthViewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MonthViewFragment newInstance(String param1, String param2) {
+    public static MonthViewFragment newInstance(int param1, int param2) {
         MonthViewFragment fragment = new MonthViewFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +52,8 @@ public class MonthViewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getInt(ARG_PARAM1);
+            mParam2 = getArguments().getInt(ARG_PARAM2);
         }
     }
 
@@ -63,9 +63,9 @@ public class MonthViewFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_month_view, container, false);
 
-        ViewPager2 vpPager = rootView.findViewById(R.id.month_vpPager);
-        FragmentStateAdapter adapter = new MonthCalendarAdapter(this);
-        vpPager.setAdapter(adapter);
+        ViewPager2 vpPager1 = rootView.findViewById(R.id.month_vpPager);
+        FragmentStateAdapter adapter1 = new MonthCalendarAdapter(this);
+        vpPager1.setAdapter(adapter1);
 
         // Inflate the layout for this fragment
         return rootView;
