@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -80,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         tvDate = (TextView) findViewById(R.id.tv_date);
         gridView = (GridView) findViewById(R.id.gridview);
 
+     //   gridView.setWeekSeparatorLineColor(Color.BLACK);
+
+
         // 오늘에 날짜를 세팅 해준다.
         long now = System.currentTimeMillis();
         final Date date = new Date(now);
@@ -130,13 +134,17 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+
+                //선택된 날짜의 배경색을 CYAN 으로 변경
+                v.setBackgroundColor(Color.CYAN);
+
                 Toast.makeText(MainActivity.this,
                         ""+(year)+"." + (month+1)+ "."+(dayList.get(position)),
                         Toast.LENGTH_SHORT).show();
             }
         });
-
-
+        //선택되지 않는 날짜의 배경색은 WHITE 로 표시
+        gridView.setBackgroundColor(Color.WHITE);
     }
 
     /**
@@ -212,9 +220,9 @@ public class MainActivity extends AppCompatActivity {
             //오늘 day 가져옴
             Integer today = mCal.get(Calendar.DAY_OF_MONTH);
             String sToday = String.valueOf(today);
-//            if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
-//                holder.tvItemGridView.setTextColor(getResources().getColor(R.color.#96CF55));
-//            }
+     //       if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
+       //         holder.tvItemGridView.setTextColor(getResources().getColor(R.color.purple_200));
+       //     }
             return convertView;
         }
     }
