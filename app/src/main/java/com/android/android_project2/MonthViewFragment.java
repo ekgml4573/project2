@@ -63,7 +63,7 @@ public class MonthViewFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_month_view, container, false);
 
-        ViewPager2 vpPager = rootView.findViewById(R.id.vpPager);
+        ViewPager2 vpPager = rootView.findViewById(R.id.month_vpPager);
         FragmentStateAdapter adapter = new MonthCalendarAdapter(this);
         vpPager.setAdapter(adapter);
 

@@ -12,9 +12,8 @@
         android:text="월간 달력" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpPager"
+        android:id="@+id/month_vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 
 </FrameLayout>
