@@ -59,14 +59,15 @@ public class WeekViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_week_view, container, false);
+   /*     View rootView = inflater.inflate(R.layout.fragment_week_view, container, false);
 
         ViewPager2 vpPager2 = rootView.findViewById(R.id.week_vpPager);
         FragmentStateAdapter adapter2 = new MonthCalendarAdapter(this);
         vpPager2.setAdapter(adapter2);
 
         // Inflate the layout for this fragment
-        return rootView;
+        return rootView; */
+        return inflater.inflate(R.layout.fragment_week_view, container, false);
     }
 
 }
