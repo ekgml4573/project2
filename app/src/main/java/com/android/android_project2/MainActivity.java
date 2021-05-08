@@ -78,11 +78,9 @@ public class MainActivity extends AppCompatActivity {
             day = Calendar.getInstance().get(Calendar.DATE);
         }
 
-        tvDate = (TextView) findViewById(R.id.tv_date);
-        gridView = (GridView) findViewById(R.id.gridview);
+        //tvDate = (TextView) findViewById(R.id.tv_date);
 
-     //   gridView.setWeekSeparatorLineColor(Color.BLACK);
-
+        gridView = (GridView) findViewById(R.id.gridView);
 
         // 오늘에 날짜를 세팅 해준다.
         long now = System.currentTimeMillis();
