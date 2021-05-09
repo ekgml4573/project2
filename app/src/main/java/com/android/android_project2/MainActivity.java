@@ -14,20 +14,15 @@ import android.widget.Toast;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,9 +73,13 @@ public class MainActivity extends AppCompatActivity {
             day = Calendar.getInstance().get(Calendar.DATE);
         }
 
-        //tvDate = (TextView) findViewById(R.id.tv_date);
+       // tvDate = (TextView) findViewById(R.id.daytv);
 
+     //   gridView = (GridView) findViewById(R.id.gridView);
         gridView = (GridView) findViewById(R.id.gridView);
+
+        //gridView.setColumnWidth(6);
+       // gridView.setNumColumns(7);
 
         // 오늘에 날짜를 세팅 해준다.
         long now = System.currentTimeMillis();
@@ -128,17 +127,23 @@ public class MainActivity extends AppCompatActivity {
      //   GridView gridView = (GridView) findViewById(R.id.gridview);
    //     gridView.setAdapter(gridAdapter);
 
+
         // 항목 클릭 이벤트 처리
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                v.setBackgroundColor(Color.CYAN);
+                View mTempView;
+
+                parent.getChildAt(position);
+                mTempView=parent.getChildAt(position);
+             //   v.setChildAt(mTempView).setBackgroundColor(Color.WHITE);
 
                 //선택된 날짜의 배경색을 CYAN 으로 변경
-                v.setBackgroundColor(Color.CYAN);
 
-                Toast.makeText(MainActivity.this,
-                        ""+(year)+"." + (month+1)+ "."+(dayList.get(position)),
-                        Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(MainActivity.this, ""+(year)+"." + (month+1)+ "."+(dayList.get(position)), Toast.LENGTH_SHORT).show();
             }
         });
         //선택되지 않는 날짜의 배경색은 WHITE 로 표시
@@ -198,6 +203,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            int gridviewH = gridView.getHeight() / 7; // 그리드뷰안에 날짜를 출력할 TextView의 높이를 그리드뷰의 높이/5 로 잡아준다.
+
+
+            //TextView daytv = (TextView)findViewById(R.id.daytv);
+
+          //  daytv.setHeight(gridviewH-2); // -2 를 해준 것은 그리드뷰가 커져서 화면을 넘어가서 스크롤바가 생기지 않도록 하기 위함이다.
+
 
             ViewHolder holder = null;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
@@ -71,24 +71,25 @@
             android:text="토"
             />
     </LinearLayout>
-
-    <LinearLayout
+    <GridView
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_height="200dp"
 
-        <GridView
-            android:layout_marginTop="5dp"
-            android:id="@+id/gridView"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:numColumns="7"
-            android:rowCount ="6"
-            >
-        </GridView>
+        android:layout_weight="1"
+        android:background="#90B0E0"
+        android:clickable="true"
+        android:horizontalSpacing="3dp"
+        android:listSelector="@drawable/gridview_selector"
+        android:numColumns="7"
+        android:paddingLeft="3dp"
 
-    </LinearLayout>
+        android:rowCount="6"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dp">
+
+    </GridView>
+
+
 
 </LinearLayout>
